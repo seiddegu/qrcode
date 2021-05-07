@@ -20,7 +20,7 @@ qr = qrcode.QRCode(
         version=1,
         box_size=7,
         border=3)
-fname = "inputData.txt"
+fname = "randomCodes.txt"
 getData = readData(fname)
 for pattern in getData:
     qr.add_data(pattern)
@@ -28,4 +28,6 @@ for pattern in getData:
     img = qr.make_image(fill='black', back_color='white')
     qrFname = "genratedqrCode/"+"qrCode" + pattern + ".png"
     img.save(qrFname)
+    #img.close()
+    qr.clear()
 # print(readData(fname))
